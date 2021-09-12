@@ -1,0 +1,10 @@
+{
+  "type": "mongodb",
+  "host": "localhost",
+  "username": "admin",
+  "password": "admin",
+  "database": "Cluster0",
+  "port": "27017",
+  "synchronize": true,
+  "entities": ["./src/entities/*.ts"]
+}
