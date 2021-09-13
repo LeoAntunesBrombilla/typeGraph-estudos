@@ -10,3 +10,8 @@ mutation {
     height
   }
 }
+mutation($deleteCharacterById: String!){
+  deleteCharacterById(characterId: $deleteCharacterById) {
+    id
+  }
+}

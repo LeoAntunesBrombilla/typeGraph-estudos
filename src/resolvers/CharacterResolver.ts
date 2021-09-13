@@ -10,7 +10,7 @@ export class CharacterResolver {
   }
 
   @Query(() => Character!, { nullable: true })
-  async findCharacterByID(
+  async findCharacterById(
     @Arg('characterId') characterId: string,
   ): Promise<Character | undefined | null> {
     return await Character.findOne(characterId);
