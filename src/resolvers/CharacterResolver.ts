@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql';
 import { getRepository } from 'typeorm';
-import { Character } from '../entities/Character';
+import { Character } from '../entity/Character';
 
 @Resolver()
 export class CharacterResolver {
