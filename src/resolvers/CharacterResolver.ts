@@ -51,6 +51,7 @@ export class CharacterResolver {
     @Arg('mass') mass: string,
   ): Promise<Character | null> {
     let character = await Character.findOne(characterId);
+
     if (character) {
       character.name = name;
       character.height = height;
@@ -58,6 +59,7 @@ export class CharacterResolver {
       await getRepository(Character).update(characterId, character);
       return character;
     }
+
     return null;
   }
 }

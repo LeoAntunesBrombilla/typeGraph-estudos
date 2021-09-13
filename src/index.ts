@@ -5,6 +5,7 @@ import * as Express from 'express';
 import { createConnection } from 'typeorm';
 import { CharacterResolver } from './resolvers/CharacterResolver';
 
+
 const main = async () => {
   try {
     await createConnection();
