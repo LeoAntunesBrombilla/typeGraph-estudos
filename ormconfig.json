@@ -4,5 +4,5 @@
   "database": "typegraphql-estudos-db",
   "useNewUrlParser": true,
   "synchronize": true,
-  "entities": ["./src/entities/*.ts"]
+  "entities": ["./src/entity/*.ts"]
 }
