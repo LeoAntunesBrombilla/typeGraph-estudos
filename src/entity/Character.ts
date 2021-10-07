@@ -45,19 +45,19 @@ export class Character extends BaseEntity {
   homeworld: string;
 
   @Field(() => [String])
-  @Column()
+  @Column('text', { array: true })
   films: Array<string>;
 
   @Field(() => [String])
-  @Column()
+  @Column('text', { array: true })
   species: Array<string>;
 
   @Field(() => [String])
-  @Column()
+  @Column('text', { array: true })
   vehicles: Array<string>;
 
   @Field(() => [String])
-  @Column()
+  @Column('text', { array: true })
   starships: Array<string>;
 
   @Field()
