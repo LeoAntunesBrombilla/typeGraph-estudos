@@ -16,16 +16,40 @@ export class CharacterResolver {
     return await Character.findOne(characterId);
   }
 
-  @Mutation(() => Character!)
+  @Mutation(() => Character)
   async addCharacter(
     @Arg('name') name: string,
     @Arg('height') height: string,
     @Arg('mass') mass: string,
+    @Arg('hair_color') hair_color: string,
+    @Arg('skin_color') skin_color: string,
+    @Arg('eye_color') eye_color: string,
+    @Arg('birth_year') birth_year: string,
+    @Arg('gender') gender: string,
+    @Arg('homeworld') homeworld: string,
+    @Arg('films') films: Array<string>,
+    @Arg('species') species: Array<string>,
+    @Arg('vehicles') vehicles: Array<string>,
+    @Arg('starships') starships: Array<string>,
+    @Arg('created') created: Date,
+    @Arg('edited') edited: Date,
   ): Promise<Character> {
     const character = await Character.create({
       name,
       height,
       mass,
+      hair_color,
+      skin_color,
+      eye_color,
+      birth_year,
+      gender,
+      homeworld,
+      films,
+      species,
+      vehicles,
+      starships,
+      created,
+      edited,
     }).save();
     return character;
   }
@@ -49,6 +73,17 @@ export class CharacterResolver {
     @Arg('name') name: string,
     @Arg('height') height: string,
     @Arg('mass') mass: string,
+    @Arg('hair_color') hair_color: string,
+    @Arg('skin_color') skin_color: string,
+    @Arg('eye_color') eye_color: string,
+    @Arg('birth_year') birth_year: string,
+    @Arg('gender') gender: string,
+    @Arg('homeworld') homeworld: string,
+    @Arg('films') films: Array<string>,
+    @Arg('species') species: Array<string>,
+    @Arg('vehicles') vehicles: Array<string>,
+    @Arg('starships') starships: Array<string>,
+    @Arg('edited') edited: Date,
   ): Promise<Character | null> {
     let character = await Character.findOne(characterId);
 
@@ -56,6 +91,18 @@ export class CharacterResolver {
       character.name = name;
       character.height = height;
       character.mass = mass;
+      character.birth_year = birth_year;
+      character.created = character.created;
+      character.edited = edited;
+      character.hair_color = hair_color;
+      character.skin_color = skin_color;
+      character.eye_color = eye_color;
+      character.gender = gender;
+      character.homeworld = homeworld;
+      character.films = films;
+      character.species = species;
+      character.vehicles = vehicles;
+      character.starships = starships;
       await getRepository(Character).update(characterId, character);
       return character;
     }
